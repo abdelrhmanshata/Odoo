@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+
+       <record id = 'iti_product_form_view' model = 'ir.ui.view'>
+            <field name="name">Product Form View</field>
+            <field name="model">product.template</field>
+            <!-- get inherit_id - debug mode -> Edit View:Form -> External ID :........ -->
+            <field name="inherit_id" ref = 'product.product_template_only_form_view'/>
+            <field name="arch" type="xml">
+                <field name="barcode" position="after">
+                      <field name="barcode2"/>
+                </field> 
+
+                <field name="default_code" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+
+                <xpath expr="//notebook//page[@name='general_information']//group//group[@name='group_standard_price']" position="inside">
+                        <field name="barcode2"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

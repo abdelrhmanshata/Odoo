@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <record id = 'students_action' model = 'ir.actions.act_window'>
+            <field name='name'>Students</field>
+            <field name="res_model">iti.student</field>
+        </record>
+
+        <!-- Create Tree View -->
+        <record id = 'iti_students_tree_view' model = 'ir.ui.view'>
+            <field name='name'>Student Tree View</field>
+            <field name="model">iti.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='age'/>
+                    <field name='gender'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Create Form View -->
+        <record id = 'iti_students_form_view' model = 'ir.ui.view'>
+                    <field name='name'>Student Form View</field>
+                    <field name="model">iti.student</field>
+                    <field name="arch" type="xml">
+                        <form>
+                            <!-- Add Button Changed -->
+                            <header>
+                                <field name="state" widget = 'statusbar' nolabel="1" options = "{'clickable':'1'}"/>
+                                <!-- A name in a button that means the action taken when it is pressed -->
+                                <button name="change_state" string = 'Change_Level'  type="object"/>
+                            </header>
+                            <sheet>
+                                <group string='General Info'>
+                                    <field name='name'/>
+                                    <field name='age'/>
+                                    <field name='gender'/>        
+                                    <field name='birth_date'/>        
+                                </group>
+                                <group string='Working Info' name='Working Info'>
+                                    <field name='is_working' invisible='1' attrs="{'invisible':'1'}"/>
+                                    <field name='cv' attrs = "{ 'required' : [('is_working' , '=' , True)]} "/>
+                                    <field name='salary' attrs="{ 'invisible': [('is_working' , '=' , False)]} "/>
+                                    <field name='info'/>
+                                </group>
+                                <notebook>
+                                    <page string='Extra Information' name='Extra Info'>
+                                        <group>
+                                            <group>
+                                                <field name='is_working'/>
+                                            </group>
+                                            <group>
+                                                <field name='summery'/>
+                                            </group>
+                                        </group>
+                                     </page>    
+                                      <page string='Track Information' name='Track Info'>
+                                        <group>
+                                            <group>
+                                                <field name='track_id' domain="[('is_opened','=',True)]" />
+                                            </group>
+                                            <group>
+                                                <field name='track_capacity'/>
+                                            </group>
+                                        </group>
+                                     </page>    
+                                    <page string = 'State Log' name="State_Log">
+                                        <field name = 'state_log' readonly='True'>
+                                            <tree>
+                                                <field name="create_uid"/>
+                                                <field name="create_date"/>
+                                                <field name="description"/>
+                                            </tree>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+        </record>
+
+        <menuitem name = 'ITI' id = 'iti_main_menu'/>
+        <menuitem name="Students" id = 'students_menu' parent = 'iti_main_menu' sequence='1' action="students_action"/>
+    </data>
+</odoo>
