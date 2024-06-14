@@ -1,6 +1,5 @@
 # Odoo
-
-- Contents 
+* Contents 
  - Odoo Eco-System
  - OdooConfiguration
  - Create your first module
