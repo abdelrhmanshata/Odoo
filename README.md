@@ -26,3 +26,7 @@
   - Odoo Security
   - Qweb Reports
 
+
+
+https://github.com/abdelrhmanshata/Odoo/assets/36518291/d18db0af-d36b-4eb7-ad64-688948927c0f
+
