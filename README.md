@@ -13,13 +13,13 @@
   - onChange decorator
   - Buttons and state
   - Odoo ORM
--
+- 
   - API constraints
   - SQL constraints
   - Computed fields
   - Model Inheritance
   - Views Inheritance
 - 
- - Odoo Security
- - Qweb Reports
+  - Odoo Security
+  - Qweb Reports
 
