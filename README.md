@@ -1,7 +1,7 @@
 # Odoo
 * Contents 
   - Odoo Eco-System
-  - OdooConfiguration
-  - Create your first module
+  - Odoo Configuration
+  - Create your (iti.student, iti.track , ....)
   - Database Models
   - Menus and Actions
